@@ -16,7 +16,7 @@ def find_min_mtu(target, min_mtu, max_mtu, interval):
                 min_mtu = mtu_size + 1
             else:
                 max_mtu = mtu_size - 1
-        except (SocketPermissionError, NameLookupError, ICMPSocketError, SocketAddressError, DestinationUnreachable, Exception) as e:
+        except (SocketPermissionError, NameLookupError, ICMPSocketError, SocketAddressError, Exception) as e:
             print(f"FAIL LOG -- A problem occurred: {str(e)}")
             valid = False
             break
@@ -38,7 +38,7 @@ if __name__ == '__main__':
         if not health_check.is_alive:
             print('FAIL LOG -- Cannot ping host')
             exit(1)
-    except (SocketPermissionError, NameLookupError, SocketAddressError, ICMPSocketError, DestinationUnreachable, Exception) as e:
+    except (SocketPermissionError, NameLookupError, SocketAddressError, ICMPSocketError, Exception) as e:
             print(f"FAIL LOG -- A problem occurred: {str(e)}")
             exit(1)
 
